@@ -5,7 +5,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/react-how_is_the_weather" element={<Main />} />
       </Routes>
     </Router>
   );

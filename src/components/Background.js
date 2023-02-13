@@ -11,7 +11,9 @@ function Background() {
   const [weathers, setWeathers] = useState();
   const apiKey = process.env.REACT_APP_API_KEY;
   const videoRef = useRef();
-  const videoSrc = "/assets/videos/";
+  // const videoSrc = "/assets/videos/";
+  const videoSrc =
+    "https://jiyaho.github.io/react-how_is_the_weather/assets/videos/";
 
   //동영상 재생 속도 조절
   const setPlayBackRate = () => {

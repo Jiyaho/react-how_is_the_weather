@@ -133,8 +133,8 @@ function WeatherApi() {
         </ul>
         <div className={styles.weatherIconDiv}>
           <img
-            // src={`https://Jiyaho.github.io/react-toDoApp/assets/weatherIcon/${weathers.weather[0].icon}.png`}
-            src={`/assets/icons/${weathers.weather[0].icon}.svg`}
+            src={`https://jiyaho.github.io/react-how_is_the_weather/assets/icons/${weathers.weather[0].icon}.svg`}
+            // src={`/assets/icons/${weathers.weather[0].icon}.svg`}
             alt="iconImg"
             className={styles.weatherIcons}
           />
@@ -142,7 +142,10 @@ function WeatherApi() {
       </div>
       <div className={styles.stateMessageWrap}>
         <img
-          src={"/assets/icons/message.svg"}
+          src={
+            "https://jiyaho.github.io/react-how_is_the_weather/assets/icons/message.svg"
+          }
+          // src={"/assets/icons/message.svg"}
           alt="iconImg"
           className={styles.i_message}
         />
@@ -165,7 +168,10 @@ function WeatherApi() {
             <div>
               <li className={styles.desc}>
                 <img
-                  src={"/assets/icons/hashtag.svg"}
+                  src={
+                    "https://jiyaho.github.io/react-how_is_the_weather/assets/icons/hashtag.svg"
+                  }
+                  // src={"/assets/icons/hashtag.svg"}
                   alt="iconImg"
                   className={styles.i_hashtag}
                 />
@@ -174,7 +180,10 @@ function WeatherApi() {
             </div>
             <li className={styles.tempMinMax}>
               <img
-                src={"/assets/icons/temperature.svg"}
+                src={
+                  "https://jiyaho.github.io/react-how_is_the_weather/assets/icons/temperature.svg"
+                }
+                // src={"/assets/icons/temperature.svg"}
                 alt="iconImg"
                 className={styles.i_temp}
               />
@@ -194,7 +203,10 @@ function WeatherApi() {
             </li>
             <li className={styles.windSpeed}>
               <img
-                src={"/assets/icons/wind.svg"}
+                src={
+                  "https://jiyaho.github.io/react-how_is_the_weather/assets/icons/wind.svg"
+                }
+                // src={"/assets/icons/wind.svg"}
                 alt="iconImg"
                 className={styles.i_wind}
               />
@@ -203,7 +215,10 @@ function WeatherApi() {
             </li>
             <li className={styles.humidity}>
               <img
-                src={"/assets/icons/humidity.svg"}
+                src={
+                  "https://jiyaho.github.io/react-how_is_the_weather/assets/icons/humidity.svg"
+                }
+                // src={"/assets/icons/humidity.svg"}
                 alt="iconImg"
                 className={styles.i_humidity}
               />

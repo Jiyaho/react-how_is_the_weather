@@ -2,13 +2,96 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* font-family: 'Noto Sans KR', sans-serif; */
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --accent-color: rgb(163, 83, 22);
-  --background-color: rgb(249, 246, 240);
-  --text-color: #3b3939;
+  font-family: 'Noto Sans KR', sans-serif;
+  /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+  /* --accent-color: rgb(163, 83, 22); */
+  --background-color: rgba(42, 155, 225, 0.5);
+  --text-color: #e6e3e3;
+}
+.titleLink {
+  text-decoration: none;
+  text-align: center;
+}
+/* Nav */
+.navbar {
+  z-index: 1;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  background-color: var(--background-color);
+  padding: 2px 16px;
+  position: sticky;
+  top: 0;
+  margin-top: -10px;
+}
+.navbar_svg {
+  color: var(--text-color);
+  font-size: 19px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.navbar_logo {
+  font-size: 19px;
+  margin-right: 10px;
+}
+.navLink {
+  text-decoration: none;
+  text-align: center;
+  color: var(--text-color)
+}
+.navbar_menu {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+  padding: 0;
+}
+.navbar_menu li {
+  font-size: 19px;
+  margin: 10px;
+  margin-left: 35px;
+}
+.navbar_menu li:hover a,
+.navbar button:hover {
+  color: var(--accent-color);
+}
+.navbar_toggleBtn {
+  display: none;
+  color: var(--accent-color);
+  position: absolute;
+  right: 32px;
+  font-size: 24px;
+}
+.navbar button {
+  background-color: transparent;
+  border: none;
+  list-style: none;
+  font-size: 19px;
+  padding: 8px 13px;
+  cursor: pointer;
+  margin-right: -100px;
+  color: black;
 }
 
+
+/* footer */
+footer {
+  z-index: 1;
+  position: relative;
+  width: 400px;
+  height: 38px;
+  margin: auto;
+  background-color: var(--background-color);
+}
+.copyright {
+  position:absolute;
+  color: var(--text-color);
+  list-style: none;
+  font-size: 0.9em;
+  padding: 10px;
+  padding-left: 22px;
+}
+
+/* Main */
 .container {
   z-index: 2;
   position: relative;
@@ -20,12 +103,13 @@
   margin: auto;
 }
 
+
+/* WeatherApi */
 .apiContainer {
   z-index: 1;
   margin: auto;
   display: flex;
   flex-direction: column;
-  padding-bottom: 10px;
   position: relative;
   width: 400px;
   height: 100%;
@@ -54,9 +138,21 @@ li {
   position: relative;
   z-index: 1;
   padding: 10px;
-  width: 330px;
+  width: 320px;
   margin: auto;
-  margin-top: 15px;
+  margin-top: 11px;
+}
+.logoWrap {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  margin-left: -17px;
+}
+.logo {
+  font-size: 2.7em;
+  color: white;
+  margin: 8px;
+  margin-right: -80px;
 }
 .titleKo {
   font-size: 2.8em;
@@ -66,45 +162,56 @@ li {
   font-weight: 600;
   margin-top: -8px;
   font-size: 0.95em;
+  letter-spacing: 4.5px;
+  word-spacing: 5px;
 }
 .DateTime {
   position: relative;
   z-index: 1;
   text-align: center;
   font-weight: 10;
+  font-size: 1.1em;
   color: rgb(255, 255, 255);
-  margin-top: 10px;
+  margin-top: 5px;
   margin-bottom: 7px;
 }
 .weatherDetailWrap1 {
   margin: auto;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
   width: 330px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .weatherDetailWrap1 ul {
   display: flex;
   flex-direction: column;
   width: 155px;
-  height: 155px;
+  height: 160px;
   padding: 10px;
+}
+.i_location {
+  color: white;
+  font-size: 1.2em;
+  margin-left: -115px;
+  margin-top: 1px;
 }
 .city {
   font-size: 1.4em;
-  margin-top: 12px;
+  margin-top: -3px;
+  padding: 5px;
 }
 .temp {
-  margin-top: -2px;
+  margin-top: -9px;
   font-size: 2.2em;
 }
 .feelsLike {
-  margin-top: 0px;
+  margin-top: -5px;
+  margin-bottom: 5px;
 }
 .weatherIconDiv {
   width: 155px;
-  height: 155px;
+  height: 160px;
   display: flex;
 }
 .weatherIcons {
@@ -118,23 +225,22 @@ li {
 
 /* =====stateMessageWrap===== */
 .i_message {
-  font-size: 1.2em;
+  font-size: 1.1em;
   color: white;
 }
 .stateMessageWrap {
   margin: auto;
   margin-top: 0px;
-  margin-bottom: 10px;
-  width: 330px;
+  margin-bottom: 5px;
+  width: 320px;
   padding: 15px;
-
 }
 .stateMessageWrap ul {
   width: 300px;
   height: fit-content;
   margin: auto;
   margin-top: -10px;
-  margin-bottom: 17px;
+  margin-bottom: 13px;
 }
 .stateMessageRainSnow, .stateMessageTemp {
   font-size: 1.2em;
@@ -150,38 +256,38 @@ li {
   margin-left: 10px;
 }
 .i_hashtag {
-  font-size: 1em;
+  font-size: 0.8em;
 
 }
 .i_temp {
-  font-size: 1.4em;
+  font-size: 1.3em;
 }
 .i_wind {
-  font-size: 1.1em;
+  font-size: 0.9em;
 
 }
 .i_humidity {
-  font-size: 1em;
+  font-size: 0.85em;
 
 }
 .weatherDetailWrap2 ul {
-  width: 400px;
+  width: 330px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   flex-wrap: wrap;
-  margin-left: -5px;
-
+  margin: auto;
+}
+.weatherDetailWrap2 li {
+  margin: 5px;
 }
 .desc {
   font-size: 1.5em;
 }
 .desc, .tempMinMax, .humidity, .windSpeed {
-  width: 155px; height: 110px;
+  width: 155px; height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 10px;
 }
 .tempMinMax {
   font-size: 1.1em;
@@ -192,7 +298,6 @@ li {
 .humidity {
   font-size: 1.4em;
 }
-
 
 /* Background */
 .jb_box {
@@ -219,21 +324,30 @@ video {
     height: fit-content;
   }
   .container {
-    z-index: 2;
-    position: relative;
-    background-color: rgba(81, 136, 199, 0.7);
-    /* width: 410px; */
+    background-color: rgba(81, 136, 199, 0.0);
     width: 100%;
     height: 100vh;
   }
   .apiContainer {
     width: 100%;
-    height: 100%;
+    height: 100vh;
   }
   .titleWrap, .weatherDetailWrap1 ul, .weatherIconDiv, .stateMessageWrap, .weatherDetailWrap2 li {
     background-color: rgba(42, 155, 225, 0.5);
     border-radius: 15px;
   }
   
-  
+    /* Footer */
+  footer {
+    z-index: 1;
+    position: relative;
+    width: 100%;
+    background-color: transparent;
+    margin-top: 0px;
+  }
+  .copyright {
+    position:absolute;
+    font-size: 0.9em;
+    padding-left: 66px;
+  }
 }

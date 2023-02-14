@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "../css/App.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRainbow } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
   const week = ["일", "월", "화", "수", "목", "금", "토"];
@@ -28,7 +30,12 @@ function Header() {
     <div className={styles.titleWrap}>
       <Link to={`/`} className={styles.titleLink}>
         <ul>
-          <li className={styles.titleKo}>날씨어때</li>
+          <div className={styles.logoWrap}>
+            <li>
+              <FontAwesomeIcon icon={faRainbow} className={styles.logo} />
+            </li>
+            <li className={styles.titleKo}>날씨어때</li>
+          </div>
           <li className={styles.titleEn}>How's the weather?</li>
         </ul>
       </Link>

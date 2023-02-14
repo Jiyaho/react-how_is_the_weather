@@ -8,6 +8,7 @@ import {
   faNoteSticky,
   faTemperatureHalf,
   faWind,
+  faLocationCrosshairs,
 } from "@fortawesome/free-solid-svg-icons";
 
 function WeatherApi() {
@@ -48,35 +49,6 @@ function WeatherApi() {
     } catch (e) {
       console.log(e);
       setError(e);
-    }
-  };
-
-  const faSun = "ddd";
-  const mySun = "faSun";
-  const getIcon = () => {
-    if (icons === "01d") {
-      return "faSun";
-    } else if (icons === "01n") {
-      return "fa-solid fa-moon";
-    } else if (icons === "02d") {
-      return "fa-solid fa-cloud-sun";
-    } else if (icons === "02n") {
-      return "fa-solid fa-cloud-moon";
-    } else if (icons === "03d" || "03n" || "04d" || "04n") {
-      //04d, 04n은 먹구름
-      return "fa-solid fa-cloud";
-    } else if (icons === "09d" || "09n") {
-      return "fa-solid fa-cloud-showers-heavy";
-    } else if (icons === "10d") {
-      return "fa-solid fa-cloud-sun-rain";
-    } else if (icons === "10n") {
-      return "fa-solid fa-cloud-moon-rain";
-    } else if (icons === "11d" || "11n") {
-      return "fa-solid fa-cloud-bolt";
-    } else if (icons === "13d" || "13n") {
-      return "fa-solid fa-snowflake";
-    } else if (icons === "50d" || "50n") {
-      return "fa-solid fa-smog";
     }
   };
 
@@ -164,6 +136,10 @@ function WeatherApi() {
     <div className={styles.apiContainer}>
       <div className={styles.weatherDetailWrap1}>
         <ul>
+          <FontAwesomeIcon
+            icon={faLocationCrosshairs}
+            className={styles.i_location}
+          />
           <li className={styles.city}>{weathers.name}</li>
           <li className={styles.temp}>{Math.round(weathers.main.temp)}℃</li>
           <li className={styles.feelsLike}>
@@ -197,21 +173,15 @@ function WeatherApi() {
       <div className={styles.weatherDetailContainer}>
         <div className={styles.weatherDetailWrap2}>
           <ul>
-            <div>
-              <li className={styles.desc}>
-                <FontAwesomeIcon
-                  icon={faHashtag}
-                  className={styles.i_hashtag}
-                />
-                {weathers.weather[0].description}
-              </li>
-            </div>
+            <li className={styles.desc}>
+              <FontAwesomeIcon icon={faHashtag} className={styles.i_hashtag} />
+              {weathers.weather[0].description}
+            </li>
             <li className={styles.tempMinMax}>
               <FontAwesomeIcon
                 icon={faTemperatureHalf}
                 className={styles.i_temp}
               />
-
               <span>
                 최저{" "}
                 <b style={{ color: "blue" }}>

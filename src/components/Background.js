@@ -84,6 +84,7 @@ function Background() {
       <video
         muted
         autoPlay
+        playsInline
         loop
         ref={videoRef}
         onCanPlay={() => setPlayBackRate()}

@@ -1,12 +1,21 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "../css/App.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHashtag,
+  faDroplet,
+  faNoteSticky,
+  faTemperatureHalf,
+  faWind,
+} from "@fortawesome/free-solid-svg-icons";
 
 function WeatherApi() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [coords, setCoords] = useState();
   const [weathers, setWeathers] = useState();
+  const [icons, setIcons] = useState();
   const apiKey = process.env.REACT_APP_API_KEY;
   function handleGeoSucc(position) {
     console.log(position);
@@ -29,15 +38,45 @@ function WeatherApi() {
   const getWeather = async (lat, lon) => {
     try {
       const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&lang=kr&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
       );
       const data = response.data;
       console.log(data);
       setWeathers(data);
+      setIcons(data.weather[0].icon);
       setLoading(false);
     } catch (e) {
       console.log(e);
       setError(e);
+    }
+  };
+
+  const faSun = "ddd";
+  const mySun = "faSun";
+  const getIcon = () => {
+    if (icons === "01d") {
+      return "faSun";
+    } else if (icons === "01n") {
+      return "fa-solid fa-moon";
+    } else if (icons === "02d") {
+      return "fa-solid fa-cloud-sun";
+    } else if (icons === "02n") {
+      return "fa-solid fa-cloud-moon";
+    } else if (icons === "03d" || "03n" || "04d" || "04n") {
+      //04d, 04n은 먹구름
+      return "fa-solid fa-cloud";
+    } else if (icons === "09d" || "09n") {
+      return "fa-solid fa-cloud-showers-heavy";
+    } else if (icons === "10d") {
+      return "fa-solid fa-cloud-sun-rain";
+    } else if (icons === "10n") {
+      return "fa-solid fa-cloud-moon-rain";
+    } else if (icons === "11d" || "11n") {
+      return "fa-solid fa-cloud-bolt";
+    } else if (icons === "13d" || "13n") {
+      return "fa-solid fa-snowflake";
+    } else if (icons === "50d" || "50n") {
+      return "fa-solid fa-smog";
     }
   };
 
@@ -141,14 +180,7 @@ function WeatherApi() {
         </div>
       </div>
       <div className={styles.stateMessageWrap}>
-        <img
-          src={
-            "https://jiyaho.github.io/react-how_is_the_weather/assets/icons/message.svg"
-          }
-          // src={"/assets/icons/message.svg"}
-          alt="iconImg"
-          className={styles.i_message}
-        />
+        <FontAwesomeIcon icon={faNoteSticky} className={styles.i_message} />
         <ul>
           <li className={styles.stateMessageRainSnow}>
             {stateMessageRainSnow()}
@@ -167,24 +199,16 @@ function WeatherApi() {
           <ul>
             <div>
               <li className={styles.desc}>
-                <img
-                  src={
-                    "https://jiyaho.github.io/react-how_is_the_weather/assets/icons/hashtag.svg"
-                  }
-                  // src={"/assets/icons/hashtag.svg"}
-                  alt="iconImg"
+                <FontAwesomeIcon
+                  icon={faHashtag}
                   className={styles.i_hashtag}
                 />
                 {weathers.weather[0].description}
               </li>
             </div>
             <li className={styles.tempMinMax}>
-              <img
-                src={
-                  "https://jiyaho.github.io/react-how_is_the_weather/assets/icons/temperature.svg"
-                }
-                // src={"/assets/icons/temperature.svg"}
-                alt="iconImg"
+              <FontAwesomeIcon
+                icon={faTemperatureHalf}
                 className={styles.i_temp}
               />
 
@@ -202,26 +226,12 @@ function WeatherApi() {
               </span>
             </li>
             <li className={styles.windSpeed}>
-              <img
-                src={
-                  "https://jiyaho.github.io/react-how_is_the_weather/assets/icons/wind.svg"
-                }
-                // src={"/assets/icons/wind.svg"}
-                alt="iconImg"
-                className={styles.i_wind}
-              />
+              <FontAwesomeIcon icon={faWind} className={styles.i_wind} />
               {windSpeed()}
               <br /> {weathers.wind.speed}m/s
             </li>
             <li className={styles.humidity}>
-              <img
-                src={
-                  "https://jiyaho.github.io/react-how_is_the_weather/assets/icons/humidity.svg"
-                }
-                // src={"/assets/icons/humidity.svg"}
-                alt="iconImg"
-                className={styles.i_humidity}
-              />
+              <FontAwesomeIcon icon={faDroplet} className={styles.i_humidity} />
               {weathers.main.humidity}%
             </li>
           </ul>

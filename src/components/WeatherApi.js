@@ -18,8 +18,9 @@ function WeatherApi() {
   const [weathers, setWeathers] = useState();
   const [icons, setIcons] = useState();
   const apiKey = process.env.REACT_APP_API_KEY;
+
   function handleGeoSucc(position) {
-    console.log(position);
+    console.log("포지션: " + position);
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
     const coordsObj = { latitude, longitude };
@@ -51,8 +52,6 @@ function WeatherApi() {
       setError(e);
     }
   };
-
-  //=====풍속 (4미만:약함, 4~8:약간강, 9~13:강, 14이상:매우강)===== */
 
   function windSpeed() {
     if (weathers.wind.speed < 4) {

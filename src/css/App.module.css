@@ -12,6 +12,7 @@
   text-decoration: none;
   text-align: center;
 }
+
 /* Nav */
 .navbar {
   z-index: 1;
@@ -19,20 +20,19 @@
   justify-content:space-between;
   align-items: center;
   background-color: var(--background-color);
-  padding: 2px 16px;
+  padding: 2px 13px;
   position: sticky;
   top: 0;
   margin-top: -10px;
 }
 .navbar_svg {
   color: var(--text-color);
-  font-size: 19px;
+  font-size: 17px;
   margin-right: 5px;
   margin-left: 5px;
 }
 .navbar_logo {
-  font-size: 19px;
-  margin-right: 10px;
+  font-size: 17px;
 }
 .navLink {
   text-decoration: none;
@@ -46,9 +46,9 @@
   padding: 0;
 }
 .navbar_menu li {
-  font-size: 19px;
+  font-size: 17px;
   margin: 10px;
-  margin-left: 35px;
+  margin-left: 30px;
 }
 .navbar_menu li:hover a,
 .navbar button:hover {
@@ -299,6 +299,7 @@ li {
   font-size: 1.4em;
 }
 
+
 /* Background */
 .jb_box {
   top: 0;
@@ -339,15 +340,13 @@ video {
   
     /* Footer */
   footer {
-    z-index: 1;
-    position: relative;
     width: 100%;
     background-color: transparent;
-    margin-top: 0px;
+    margin-top: 40px;
   }
   .copyright {
     position:absolute;
-    font-size: 0.9em;
-    padding-left: 66px;
+    font-size: 0.75em;
+    padding-left: 30px;
   }
 }

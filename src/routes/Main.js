@@ -9,7 +9,7 @@ function Main() {
   return (
     <div>
       <div className={styles.container}>
-        <Nav />
+        {/* <Nav /> */}
         <Header />
         <WeatherApi />
       </div>

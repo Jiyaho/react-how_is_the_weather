@@ -1,6 +1,8 @@
-## 날씨어때 (How's the weather?) Web Page
+## 날씨어때(How's the weather?)
 
 ---
+### 🔷 Description
+Web site that provides weather status
 
 ### 🔷 URL
 

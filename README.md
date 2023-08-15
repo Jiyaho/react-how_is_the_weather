@@ -15,7 +15,7 @@ A web site that provides weather status.
 
 <img src="public/assets/screenshot/pc1.png" alt="screenshot" /> <br>
 
-<img src="public/assets/screenshot/mobile1.png" alt="screenshot" />
+<img src="public/assets/screenshot/mobile1.png" alt="screenshot" width="70%" />
 
 ### 🔷 Features Available on this Web Site
 

@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import styles from "../css/App.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import styles from '../css/App.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faHashtag,
   faDroplet,
@@ -9,7 +9,7 @@ import {
   faTemperatureHalf,
   faWind,
   faLocationCrosshairs,
-} from "@fortawesome/free-solid-svg-icons";
+} from '@fortawesome/free-solid-svg-icons';
 
 function WeatherApi() {
   const [error, setError] = useState(null);
@@ -20,7 +20,7 @@ function WeatherApi() {
   const apiKey = process.env.REACT_APP_API_KEY;
 
   function handleGeoSucc(position) {
-    console.log("포지션: " + position);
+    console.log('포지션: ' + position);
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
     const coordsObj = { latitude, longitude };
@@ -29,7 +29,7 @@ function WeatherApi() {
   }
 
   function handleGeoErr(err) {
-    console.log("Geolocation is error! " + err);
+    console.log('Geolocation is error! ' + err);
     setError(err);
   }
 
@@ -55,13 +55,13 @@ function WeatherApi() {
 
   function windSpeed() {
     if (weathers.wind.speed < 4) {
-      return "약한 바람";
+      return '약한 바람';
     } else if (3 < weathers.wind.speed < 9) {
-      return "약간 강한 바람";
+      return '약간 강한 바람';
     } else if (8 < weathers.wind.speed < 14) {
-      return "강한 바람";
+      return '강한 바람';
     } else if (13 < weathers.wind.speed) {
-      return "매우 강한 바람";
+      return '매우 강한 바람';
     }
   }
 
@@ -70,45 +70,49 @@ function WeatherApi() {
   const stateMessageWind = () => {
     const windSpd = weathers.wind.speed;
     if (windSpd < 4) {
-      return "바람은 잔잔하고 🍃";
+      return '바람은 잔잔하고 🍃';
     } else if (3 < windSpd < 9) {
-      return "약간 바람이 불고 🍃";
+      return '약간 바람이 불고 🍃';
     } else if (8 < windSpd < 14) {
-      return "바람이 강하게 불고 💨";
+      return '바람이 강하게 불고 💨';
     } else if (windSpd > 13) {
-      return "바람이 미친듯이 불고 🌪️";
+      return '바람이 미친듯이 불고 🌪️';
     }
   };
   //#. 최저 기온 기준 (-10도 이하, 영하7~영하1도, 0~5도...)
   const stateMessageTemp = () => {
     const temp = weathers.main.temp;
-    const tempMax = weathers.main.temp_max;
+    // const tempMax = weathers.main.temp_max;
     if (temp < -9) {
-      return "너어어무 추워... 롱패딩 입는게 좋을 것 같아.";
+      return '너어어무 추워... 롱패딩 입는게 좋을 것 같아.';
     } else if (-10 < temp && temp < -5) {
-      return "추워.. 롱패딩도 Okay, 최소 숏패딩이라도 입어!";
+      return '추워.. 롱패딩도 Okay, 최소 숏패딩이라도 입어!';
     } else if (-4 < temp && temp < 1) {
-      return "꽤 쌀쌀해, 숏패딩이나 두터운 점퍼 추천해.";
-    } else if (0 < temp < 7) {
-      return "약간 쌀쌀해. 어쩌구저쩌구 저쩌구하니까.!!";
-    } else if (6 < temp < 11) {
-      return "아직은 쌀쌀한 날씨야, 아침 저녁으로는 추우니 옷을 잘 챙기도록 해.";
-    } else if (10 < temp < 19) {
-      return "아침, 저녁에는 선선하니 자켓이나 가디건을 챙겨.";
-    } else if (tempMax > 28) {
-      return "최고 기온이 30도 안팍이야 더워ㅠㅠ";
-    } else if (tempMax > 29) {
-      return "최고 기온이 30도 이상이야 너무 더워!!";
+      return '꽤 쌀쌀해, 숏패딩이나 두터운 점퍼 추천해.';
+    } else if (0 < temp && temp < 7) {
+      return '약간 쌀쌀해. 어쩌구저쩌구 저쩌구하니까.!!';
+    } else if (6 < temp && temp < 11) {
+      return '아직은 쌀쌀한 날씨야, 아침 저녁으로는 추우니 옷을 잘 챙기도록 해.';
+    } else if (10 < temp && temp < 19) {
+      return '아침, 저녁에는 선선할 수 있으니 자켓이나 가디건을 챙겨.';
+    } else if (18 < temp && temp < 24) {
+      return '덥지도 춥지도 않고 적당헤';
+    } else if (24 < temp && temp < 28) {
+      return '조금 더워!';
+    } else if (27 < temp && temp < 31) {
+      return '덥다..';
+    } else if (30 < temp) {
+      return '너어무 덥다..🥵';
     }
   };
 
   const stateMessageRainSnow = () => {
     if (weathers.rain) {
-      return "☔️ 비온다!";
+      return '☔️ 비온다!';
     } else if (weathers.snow) {
-      return "❄️ 눈온다!";
+      return '❄️ 눈온다!';
     } else if (weathers.rain && weathers.snow) {
-      return "🌧️ 눈비 온다!";
+      return '🌧️ 눈비 온다!';
     }
   };
 
@@ -121,10 +125,10 @@ function WeatherApi() {
     return (
       <div
         style={{
-          textAlign: "center",
-          fontSize: "2.5em",
-          color: "white",
-          margin: "20px",
+          textAlign: 'center',
+          fontSize: '2.5em',
+          color: 'white',
+          margin: '20px',
         }}
       >
         Loading...
@@ -135,15 +139,10 @@ function WeatherApi() {
     <div className={styles.apiContainer}>
       <div className={styles.weatherDetailWrap1}>
         <ul>
-          <FontAwesomeIcon
-            icon={faLocationCrosshairs}
-            className={styles.i_location}
-          />
+          <FontAwesomeIcon icon={faLocationCrosshairs} className={styles.i_location} />
           <li className={styles.city}>{weathers.name}</li>
           <li className={styles.temp}>{Math.round(weathers.main.temp)}℃</li>
-          <li className={styles.feelsLike}>
-            (체감온도 {Math.round(weathers.main.feels_like)}℃)
-          </li>
+          <li className={styles.feelsLike}>(체감온도 {Math.round(weathers.main.feels_like)}℃)</li>
         </ul>
         <div className={styles.weatherIconDiv}>
           <img
@@ -157,12 +156,9 @@ function WeatherApi() {
       <div className={styles.stateMessageWrap}>
         <FontAwesomeIcon icon={faNoteSticky} className={styles.i_message} />
         <ul>
-          <li className={styles.stateMessageRainSnow}>
-            {stateMessageRainSnow()}
-          </li>
+          <li className={styles.stateMessageRainSnow}>{stateMessageRainSnow()}</li>
           <li className={styles.stateMessageTemp}>
-            '{weathers.name}'의 현재 기온은,{" "}
-            <b>{Math.round(weathers.main.temp)}℃</b>
+            '{weathers.name}'의 현재 기온은, <b>{Math.round(weathers.main.temp)}℃</b>
           </li>
           <li className={styles.stateMessageWind}>{stateMessageWind()}</li>
           <li className={styles.stateMessageTemp}>{stateMessageTemp()}</li>
@@ -177,21 +173,12 @@ function WeatherApi() {
               {weathers.weather[0].description}
             </li>
             <li className={styles.tempMinMax}>
-              <FontAwesomeIcon
-                icon={faTemperatureHalf}
-                className={styles.i_temp}
-              />
+              <FontAwesomeIcon icon={faTemperatureHalf} className={styles.i_temp} />
               <span>
-                최저{" "}
-                <b style={{ color: "blue" }}>
-                  {Math.round(weathers.main.temp_min)}℃
-                </b>
+                최저 <b style={{ color: 'blue' }}>{Math.round(weathers.main.temp_min)}℃</b>
               </span>
               <span>
-                최고{" "}
-                <b style={{ color: "red" }}>
-                  {Math.round(weathers.main.temp_max)}℃
-                </b>
+                최고 <b style={{ color: 'red' }}>{Math.round(weathers.main.temp_max)}℃</b>
               </span>
             </li>
             <li className={styles.windSpeed}>

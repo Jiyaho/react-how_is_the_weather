@@ -13,7 +13,8 @@ A web site that provides weather status.
 
 ### 🔷 Screenshot
 
-<img src="https://jiyaho.github.io/react-how_is_the_weather/assets/screenshot/pc1.png" alt="screenshot" /> <br>
+In PC
+<img src="public/assets/screenshot/pc1.png" alt="screenshot" /> <br>
 
 <img src="public/assets/screenshot/mobile1.png" alt="screenshot" />
 

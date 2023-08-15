@@ -13,7 +13,6 @@ A web site that provides weather status.
 
 ### 🔷 Screenshot
 
-In PC
 <img src="public/assets/screenshot/pc1.png" alt="screenshot" /> <br>
 
 <img src="public/assets/screenshot/mobile1.png" alt="screenshot" />

@@ -57,10 +57,12 @@ A web site that provides weather status.
 
 <img src="https://i.ibb.co/dG5GZnk/pc-mobile.png" alt="pc-mobile" border="0" width="200px" />
 
-## 🔷 Trouble Shooting - **모바일에서 Video 요소 자동 재생 옵션 미적용 문제** - 문제점: video 태그가 PC 웹에서는 정상작동 하나, 모바일에서는
+## 🔷 Trouble Shooting
 
-백그라운드로 자동 재생이 안 되는 문제 발생하였습니다. - 원인: 안드로이드 기종의 경우에는 `autoPlay` 속성만으로도 정상 작동한다고 하나,
-IOS에서는 `playsInline` 속성이 추가적으로 필요하였습니다. - 해결: video 태그에 `autoPlay` 외에도 playsInline 속성을 추가하여 해결하였습니다.{' '}
+- **모바일에서 Video 요소 자동 재생 옵션 미적용 문제**
+  - 문제점: video 태그가 PC 웹에서는 정상작동 하나, 모바일에서는 백그라운드로 자동 재생이 안 되는 문제 발생하였습니다.
+  - 원인: 안드로이드 기종의 경우에는 `autoPlay` 속성만으로도 정상 작동한다고 하나, IOS에서는 `playsInline` 속성이 추가적으로 필요하였습니다.
+  - 해결: video 태그에 `autoPlay` 외에도 playsInline 속성을 추가하여 해결하였습니다.{' '}
 
 ## 🔷 File Tree Structure
 
